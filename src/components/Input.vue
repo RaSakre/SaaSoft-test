@@ -1,15 +1,7 @@
 <template>
   <div class="input-wrapper">
-    <input 
-      ref="passwordInput" 
-      :type="type" 
-      :placeholder="placeholder" 
-      v-model="model"
-      :name="name"  
-      class="input" 
-      :style="[error ? 'border: 1px solid red' : null]"
-      @blur="emit('blur', model || '')"
-    />
+    <input ref="passwordInput" :type="type" :placeholder="placeholder" v-model="model" :name="name" class="input"
+      :style="[error ? 'border: 1px solid red' : null]" @blur="emit('blur', model || '')" />
     <slot />
     <div v-if="type === 'password'" class="input-eye" @click="togglePasswordVisibility">
       <img :src="isPasswordVisible ? passwordEyeIconHide : passwordEyeIcon" alt="Toggle visibility" />
@@ -31,7 +23,7 @@ interface Props {
 const model = defineModel<string>();
 
 const emit = defineEmits<{
-  blur: [value: string] 
+  blur: [value: string]
 }>()
 
 defineProps<Props>();
@@ -49,7 +41,6 @@ const togglePasswordVisibility = () => {
 <style scoped>
 .input-wrapper {
   position: relative;
-  width: fit-content;
 }
 
 .input-eye {
@@ -61,7 +52,6 @@ const togglePasswordVisibility = () => {
 
 .input {
   width: 100%;
-  max-width: 300px;
   padding: 10px;
   background-color: #ffffff;
   border: 1px solid #e0e0e0;

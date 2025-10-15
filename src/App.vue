@@ -6,18 +6,26 @@
         <div class="question">?</div>
         <p class="hint-text">Для указания нескольких метох для одной пары логин/пароль используйте разделитель ;</p>
       </div>
-      <div class="spans-wrapper">
-        <div class="label-spans">
-          <span class="label-text">Метки</span>
+      <div class="row">
+        <div class="col-3">
+          <div class="label-spans">
+            <span class="label-text">Метки</span>
+          </div>
         </div>
-        <div class="label-spans label-spans_select">
-          <span class="label-text">Тип записи</span>
+        <div class="col-2">
+          <div class="label-spans label-spans_select">
+            <span class="label-text">Тип записи</span>
+          </div>
         </div>
-        <div class="label-spans">
-          <span class="label-text">Логин</span>
+        <div class="col-2">
+          <div class="label-spans">
+            <span class="label-text">Логин</span>
+          </div>
         </div>
-        <div class="label-spans">
-          <span class="label-text">Пароль</span>
+        <div class="col-2">
+          <div class="label-spans">
+            <span class="label-text">Пароль</span>
+          </div>
         </div>
       </div>
       <AccountItem v-for="account in accountStore.accounts" :key="account.id" :account="account" />

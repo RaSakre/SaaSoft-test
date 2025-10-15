@@ -1,27 +1,27 @@
 <template>
-  <div class="items-list">
-    <label class="input-label">
+  <div class="row mb-3">
+    <label class="input-label col-3" for="">
       <Input @blur="(value: string) => handleBlur('tags', value)" type="text" :error="errors.tags" placeholder="Tags"
         v-model="tagsInput" />
       <span class="error" v-if="errors.tags">{{ errors.tags }}</span>
     </label>
-    <label class="select-label" for="select">
+    <label class="select-label col-2" for="select">
       <select @change="handleChangeType(localAccount.type)" class="item-select" v-model="localAccount.type" id="select">
         <option value="LDAP">LDAP</option>
         <option value="Local">Локальная</option>
       </select>
     </label>
-    <label class="input-label">
+    <label class="input-label" :class="[localAccount.type === 'Local' ? 'col-2' : 'col']" for="">
       <Input @blur="(value: string) => handleBlur('login', value)" type="text" :error="errors.login"
         v-model="localAccount.login" placeholder="Login" />
       <span class="error" v-if="errors.login">{{ errors.login }}</span>
     </label>
-    <label v-if="localAccount.type === 'Local'" class="input-label">
+    <label v-if="localAccount.type === 'Local'" class="input-label col" for="">
       <Input @blur="(value: string) => handleBlur('password', value)" type="password" :error="errors.password"
         v-model="passwordValue" placeholder="Password" />
       <span class="error" v-if="errors.password">{{ errors.password }}</span>
     </label>
-    <div @click="deleteAcc" class="trash">
+    <div @click="deleteAcc" class="trash col-2">
       <img src="../assets/trash.svg" alt="">
     </div>
   </div>
