@@ -1,6 +1,6 @@
 <template>
   <div class="items-list">
-    <label class="input-label" for="">
+    <label class="input-label">
       <Input @blur="(value: string) => handleBlur('tags', value)" type="text" :error="errors.tags" placeholder="Tags"
         v-model="tagsInput" />
       <span class="error" v-if="errors.tags">{{ errors.tags }}</span>
@@ -11,12 +11,12 @@
         <option value="Local">Локальная</option>
       </select>
     </label>
-    <label class="input-label" for="">
+    <label class="input-label">
       <Input @blur="(value: string) => handleBlur('login', value)" type="text" :error="errors.login"
         v-model="localAccount.login" placeholder="Login" />
       <span class="error" v-if="errors.login">{{ errors.login }}</span>
     </label>
-    <label class="input-label" for="">
+    <label v-if="localAccount.type === 'Local'" class="input-label">
       <Input @blur="(value: string) => handleBlur('password', value)" type="password" :error="errors.password"
         v-model="passwordValue" placeholder="Password" />
       <span class="error" v-if="errors.password">{{ errors.password }}</span>
